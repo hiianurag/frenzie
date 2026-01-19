@@ -46,6 +46,18 @@ frenzie/
 └── .gitignore
 ```
 
+```
+
+## Managing Products
+
+Updating products requires only 2 steps:
+1. **Add/Edit/Delete products** inside `data/products.json`.
+2. **Add/Edit/Delete categories** inside `data/categories.json`.
+
+**Note**:
+- If a category is missing in `categories.json`, the product will NOT be rendered.
+- If a product doesn't belong to any valid category, it will log an error in the console.
+
 ## How to Add New Pages
 
 1. Duplicate `index.html` to a new file (e.g., `about.html`) to keep the head/meta tags and scripts.
@@ -63,3 +75,4 @@ frenzie/
    - Or use Python: `python -m http.server 8000`
    - Or use Node: `npx serve .`
 3. Open the local address (e.g., `http://127.0.0.1:5500`) in your browser.
+```

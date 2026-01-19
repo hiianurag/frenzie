@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Veg Momos",
+    "description": "Pack of 20 pcs",
+    "image": "assets/images/veg-momos.jpg",
+    "categories": ["Steam Momos", "Bestsellers"],
+    "tag": "No Onion / Garlic"
+  },
+  {
+    "name": "Paneer Momos",
+    "description": "Stuffed Paneer Filling",
+    "image": "assets/images/paneer-momos.jpg",
+    "categories": ["Steam Momos"],
+    "tag": ""
+  }
+]

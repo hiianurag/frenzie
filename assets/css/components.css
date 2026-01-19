@@ -175,3 +175,31 @@
     padding: 0;
   }
 }
+
+section {
+  margin-bottom: 40px;
+}
+
+.product-card {
+  display: inline-block;
+  width: 240px;
+  margin: 10px;
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.product-tag {
+  background: #4CAF50;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  display: inline-block;
+  margin-top: 6px;
+}
+
