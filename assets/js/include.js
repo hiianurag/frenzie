@@ -1,16 +1,28 @@
 /**
  * Component Loader
- * Loads header and footer dynamically using fetch
+ * Loads header and footer dynamically using fetch.
+ * Works with both Live Server (absolute paths) and file:// protocol (relative paths).
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadComponent("#header", "/components/header.html");
-  loadComponent("#footer", "/components/footer.html");
+  // Determine base path: relative paths for file://, absolute for server
+  const isFile = window.location.protocol === "file:";
+  const base = isFile ? "" : "";
+
+  loadComponent("#header", `${base}/components/header.html`);
+  loadComponent("#footer", `${base}/components/footer.html`);
 });
 
 async function loadComponent(selector, path) {
   const element = document.querySelector(selector);
   if (!element) return;
+
+  // For file:// protocol, try relative path
+  if (window.location.protocol === "file:") {
+    // Build relative path from current file location
+    const currentDir = window.location.href.replace(/\/[^/]*$/, "");
+    path = currentDir + "/" + path.replace(/^\//, "");
+  }
 
   try {
     const response = await fetch(path);
@@ -19,7 +31,7 @@ async function loadComponent(selector, path) {
     const html = await response.text();
     element.innerHTML = html;
 
-    // Highlight active link after header loads
+    // Highlight active nav link after header loads
     if (path.includes("header")) {
       setActiveLink();
     }
@@ -33,7 +45,6 @@ function setActiveLink() {
   const links = document.querySelectorAll(".main-nav a");
 
   links.forEach((link) => {
-    // Simple check: active if href matches current path or if root and href is / or /index.html
     const linkPath = link.getAttribute("href");
     if (
       linkPath === currentPath ||
