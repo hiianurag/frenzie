@@ -2,13 +2,15 @@
    HEADER
    ========================================= */
 .site-header {
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
+  background-color: transparent;
+  width: 100%;
   height: var(--header-height);
-  position: sticky;
+  position: absolute;
   top: 0;
   z-index: 1000;
   /* Subtle shadow only — no visible border, clean floating look */
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  /* box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06); */
 }
 
 /* The inner layout: logo | [NAV centered absolutely] | CTA */
@@ -39,16 +41,18 @@
 
 /* Nav — dead center via absolute positioning */
 .main-nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  background-color: #ffffff;
+  padding: 24px;
+  height: 100%;
   z-index: 1;
+  border-radius: 8px;
 }
 
 .main-nav ul {
   display: flex;
   align-items: center;
-  gap: 2.25rem;
+  justify-content: center;
+  gap: 16px;
   white-space: nowrap;
 }
 

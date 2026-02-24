@@ -25,7 +25,43 @@
   </head>
   <body>
     <!-- Header (injected by include.js) -->
-    <div id="header"></div>
+    <div id="header">
+      <header class="site-header">
+        <div class="header-inner">
+          <!-- Logo (left) -->
+          <a href="/index.html" class="header-logo" aria-label="Frenzie Home">
+            <img
+              src="https://framerusercontent.com/images/RWpC8ibFsRzM4qdzF1STU3p3k.png"
+              alt="Frenzie"
+              class="header-logo-img"
+            />
+          </a>
+
+          <!-- Navigation (center) -->
+          <nav class="main-nav" aria-label="Main navigation">
+            <ul>
+              <li><a href="#">Products</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Why Frozen?</a></li>
+            </ul>
+          </nav>
+
+          <!-- CTA Button (right) -->
+          <a href="#contact" class="header-cta">Contact Us</a>
+
+          <!-- Mobile Toggle -->
+          <button
+            class="menu-toggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </header>
+    </div>
 
     <!-- ========== MAIN CONTENT ========== -->
     <main>
@@ -382,7 +418,7 @@
     <div id="footer"></div>
 
     <!-- Scripts -->
-    <script src="assets/js/include.js"></script>
+    <!-- <script src="assets/js/include.js"></script> -->
     <script src="assets/js/main.js"></script>
   </body>
 </html>
