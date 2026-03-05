@@ -5,10 +5,11 @@
   /* background-color: #ffffff; */
   background-color: transparent;
   width: 100%;
-  height: var(--header-height);
+  /* height: var(--header-height); */
   position: absolute;
   top: 0;
   z-index: 1000;
+  padding: 16px 48px;
   /* Subtle shadow only — no visible border, clean floating look */
   /* box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06); */
 }
@@ -17,9 +18,6 @@
 .header-inner {
   position: relative;
   height: 100%;
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding: 0 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,85 +30,85 @@
 }
 
 .header-logo-img {
-  height: 52px;
-  width: 52px;
+  height: 96px;
+  width: 96px;
   object-fit: contain;
   border-radius: 50%;
   display: block;
 }
 
 /* Nav — dead center via absolute positioning */
-.main-nav {
-  background-color: #ffffff;
-  padding: 24px;
-  height: 100%;
-  z-index: 1;
-  border-radius: 8px;
+.frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  position: relative;
 }
 
-.main-nav ul {
-  display: flex;
+.frame .navbar {
+  display: inline-flex;
+  height: 60px;
   align-items: center;
   justify-content: center;
   gap: 16px;
-  white-space: nowrap;
-}
-
-.main-nav a {
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--color-text-main);
-  letter-spacing: 0.01em;
+  padding: 0px 24px;
   position: relative;
-  padding-bottom: 3px;
-  transition: color 0.2s ease;
+  background-color: #ffffffbf;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-.main-nav a::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--color-primary);
-  border-radius: 2px;
-  transition: width 0.25s ease;
-}
-
-.main-nav a:hover,
-.main-nav a.active {
-  color: var(--color-primary);
-}
-
-.main-nav a:hover::after,
-.main-nav a.active::after {
-  width: 100%;
-}
-
-/* Contact Us — right, orange pill */
-.header-cta {
-  flex-shrink: 0;
-  z-index: 2;
+.frame .div-wrapper {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-primary);
-  color: #fff;
-  font-weight: 700;
-  font-size: 14px;
-  padding: 0.55rem 1.5rem;
-  border-radius: var(--border-radius-full);
-  white-space: nowrap;
-  transition:
-    background-color 0.2s ease,
-    transform 0.15s ease;
+  gap: 4px;
+  padding: 8px 16px;
+  position: relative;
+  flex: 0 0 auto;
 }
 
-.header-cta:hover {
-  background-color: var(--color-primary-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(255, 87, 34, 0.35);
+.frame .text-wrapper {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Open Sans-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+/* Contact Us — right, orange pill */
+.button {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  position: relative;
+  background-color: #f46036;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.button .text-wrapper {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "DM Sans-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
 }
 
 /* Mobile Toggle (shown only on small screens) */
@@ -204,46 +202,26 @@
    ========================================= */
 .hero-section {
   position: relative;
-  min-height: 520px;
+  height: 100vh;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   background-color: var(--color-surface);
-  padding: 5rem 1.5rem;
+  padding: 150px 40px;
 }
 
 .hero-bg-images {
   position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: space-between;
   pointer-events: none;
 }
 
 .hero-bg-img {
-  width: 38%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
   opacity: 0.85;
-}
-
-.hero-bg-left {
-  -webkit-mask-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.9) 0%,
-    transparent 90%
-  );
-  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, transparent 90%);
-}
-
-.hero-bg-right {
-  -webkit-mask-image: linear-gradient(
-    to left,
-    rgba(0, 0, 0, 0.9) 0%,
-    transparent 90%
-  );
-  mask-image: linear-gradient(to left, rgba(0, 0, 0, 0.9) 0%, transparent 90%);
 }
 
 .hero-content {
@@ -563,14 +541,14 @@
 /* Outer wrapper — light bg with padding to show the dark card floating */
 .site-footer {
   background-color: var(--color-background);
-  padding: 2rem 1.5rem 2.5rem;
+  padding: 40px;
 }
 
 /* Dark rounded card */
 .footer-card {
   background-color: #111111;
   border-radius: 20px;
-  max-width: var(--container-width);
+  width: 100%;
   margin: 0 auto;
   padding: 3rem 3.5rem;
   color: #fff;
